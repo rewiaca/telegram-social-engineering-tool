@@ -1,0 +1,6 @@
+telethon
+aiohttp
+pymongo
+motor
+shlex
+asyncio

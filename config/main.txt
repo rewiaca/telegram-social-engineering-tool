@@ -1,0 +1,11 @@
+[Main]
+api_id = 
+api_hash = 
+database = 
+collection = 
+
+start = True
+
+[Debug]
+debug = True
+log_file = log_client.log
